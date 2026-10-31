@@ -21,7 +21,7 @@ public Plugin myinfo =
     name = "[ZR] Grenades",
     author = "ire.",
 	description = "Manage grenade cost, count on spawn, vip extras...",
-	version = "1.2"
+	version = "1.2.1"
 };
 
 public void OnPluginStart()
@@ -34,6 +34,8 @@ public void OnPluginStart()
 	HookEvent("round_start", Event_RoundStart);
 	HookEvent("hegrenade_detonate", Event_HeGrenadeDetonate);
 	HookEvent("smokegrenade_detonate", Event_SmokeGrenadeDetonate);
+
+	LoadTranslations("GrenadeManager.phrases");
 	
 	g_cvHePrice = CreateConVar("sm_he_cost", "5000", "Price of He Grenade");
 	g_cvSmokePrice = CreateConVar("sm_smoke_cost", "8000", "Price of Smoke Grenade");
@@ -62,7 +64,7 @@ public Action BuyHe(int client, int args)
 	{
 		if(GetEntProp(client, Prop_Send, "m_iAmmo", 4, 11) > 0)
 		{
-			PrintToChat(client, "[SM] You already have a HE Grenade.");
+			PrintToChat(client, "[SM] %t", "Already Have HE Grenade");
 			return Plugin_Handled;
 		}
 		GivePlayerItem(client, "weapon_hegrenade");
@@ -73,7 +75,7 @@ public Action BuyHe(int client, int args)
 	
 	else
 	{
-		PrintToChat(client, "[SM] You have insufficient funds (Price: $%d).", g_cvHePrice.IntValue);
+		PrintToChat(client, "[SM] %t", "Grenade Insufficient Funds", g_cvHePrice.IntValue);
 		return Plugin_Handled;
 	}
 }
@@ -89,7 +91,7 @@ public Action BuySmoke(int client, int args)
 	{
 		if(GetEntProp(client, Prop_Send, "m_iAmmo", 4, 13) > 0)
 		{
-			PrintToChat(client, "[SM] You already have a Smoke Grenade.");
+			PrintToChat(client, "[SM] %t", "Already Have Smoke Grenade");
 			return Plugin_Handled;
 		}
 		GivePlayerItem(client, "weapon_smokegrenade");
@@ -100,7 +102,7 @@ public Action BuySmoke(int client, int args)
 	
 	else
 	{
-		PrintToChat(client, "[SM] You have insufficient funds (Price: $%d).", g_cvSmokePrice.IntValue);
+		PrintToChat(client, "[SM] %t", "Grenade Insufficient Funds", g_cvSmokePrice.IntValue);
 		return Plugin_Handled;
 	}
 }

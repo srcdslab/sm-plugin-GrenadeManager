@@ -1,0 +1,34 @@
+"Phrases"
+{
+	"Already Have HE Grenade"
+	{
+		"en"		"You already have an HE grenade."
+		"fr"		"Vous avez déjà une grenade HE."
+		"ru"		"У вас уже есть HE-граната."
+		"es"		"Ya tienes una granada HE."
+		"de"		"Du hast bereits eine HE-Granate."
+		"pt"		"Você já tem uma granada HE."
+		"chi"		"你已经有一枚高爆手雷了。"
+	}
+	"Already Have Smoke Grenade"
+	{
+		"en"		"You already have a smoke grenade."
+		"fr"		"Vous avez déjà une grenade fumigène."
+		"ru"		"У вас уже есть дымовая граната."
+		"es"		"Ya tienes una granada de humo."
+		"de"		"Du hast bereits eine Rauchgranate."
+		"pt"		"Você já tem uma granada de fumaça."
+		"chi"		"你已经有一枚烟雾弹了。"
+	}
+	"Grenade Insufficient Funds"
+	{
+		"#format"	"{1:d}"
+		"en"		"You have insufficient funds (Price: ${1})."
+		"fr"		"Vous n'avez pas assez d'argent (prix : ${1})."
+		"ru"		"Недостаточно денег (цена: ${1})."
+		"es"		"No tienes suficiente dinero (precio: ${1})."
+		"de"		"Du hast nicht genug Geld (Preis: ${1})."
+		"pt"		"Você não tem dinheiro suficiente (preço: ${1})."
+		"chi"		"你的资金不足（价格：${1}）。"
+	}
+}
