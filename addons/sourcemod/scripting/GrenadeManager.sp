@@ -21,7 +21,7 @@ public Plugin myinfo =
     name = "[ZR] Grenades",
     author = "ire.",
 	description = "Manage grenade cost, count on spawn, vip extras...",
-	version = "1.2.1"
+	version = "1.2.2"
 };
 
 public void OnPluginStart()
@@ -109,17 +109,19 @@ public Action BuySmoke(int client, int args)
 
 public void Event_PlayerSpawn(Event event, const char[] name, bool dontBroadcast)
 {
-	int client = GetClientOfUserId(event.GetInt("userid"));
+	int userid = event.GetInt("userid");
 	
-	CreateTimer(0.1, GiveSmoke, client);
+	CreateTimer(0.1, GiveSmoke, userid);
 }
 
-public Action GiveSmoke(Handle timer, int client)
+public Action GiveSmoke(Handle timer, int userid)
 {
+	int client = GetClientOfUserId(userid);
 	if(IsValidClient(client) && HasAccess(client) && g_cvExtraSmoke.BoolValue)
 	{
 		GivePlayerItem(client, "weapon_smokegrenade");
 	}
+	return Plugin_Continue;
 }
 
 public void Event_RoundEnd(Event event, const char[] name, bool dontBroadcast)
@@ -179,5 +181,5 @@ bool HasAccess(int client)
 
 bool IsValidClient(int client)
 {
-	return(IsClientInGame(client) && IsPlayerAlive(client) && ZR_IsClientHuman(client));
+	return(client > 0 && client <= MaxClients && IsClientInGame(client) && IsPlayerAlive(client) && ZR_IsClientHuman(client));
 }
