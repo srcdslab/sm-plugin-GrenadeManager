@@ -2,9 +2,11 @@
 #include <sdktools>
 #include <zombiereloaded>
 
+#pragma semicolon 1
+#pragma newdecls required
 #pragma tabsize 0
 
-ConVar g_cvHePrice
+ConVar g_cvHePrice;
 ConVar g_cvSmokePrice;
 ConVar g_cvExtraSmoke;
 ConVar g_cvNadeEffect;
@@ -21,7 +23,7 @@ public Plugin myinfo =
     name = "[ZR] Grenades",
     author = "ire.",
 	description = "Manage grenade cost, count on spawn, vip extras...",
-	version = "1.2.3"
+	version = "1.2.4"
 };
 
 public void OnPluginStart()
