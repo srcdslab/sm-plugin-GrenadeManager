@@ -23,7 +23,7 @@ public Plugin myinfo =
     name = "[ZR] Grenades",
     author = "ire.",
 	description = "Manage grenade cost, count on spawn, vip extras...",
-	version = "1.2.4"
+	version = "1.2.5"
 };
 
 public void OnPluginStart()
